@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>-Ingrese 2 numeros a sumar-</h1>
+    <section>
+      <div>
+        primer numero:
+        <input type="number" name="numberInput" id="inputNumber1" />
+      </div>
+      <div>
+        segundo numero:
+        <input type="number" name="numberInput" id="inputNumber2" />
+      </div>
+    </section>
+    <button id="sumar" onclick="handleClick()">SUMAR</button>
+
+    <button
+      id="clear"
+      onclick="document.getElementById('inputNumber1').value = ''"
+    >
+      CLEAR
+    </button>
+    <div>
+      <p id="resultado"></p>
+    </div>
+    <script>
+      const input1 = document.getElementById("inputNumber1");
+      const input2 = document.getElementById("inputNumber2");
+      const resultado = document.getElementById("resultado");
+
+      const handleClick = () => {
+        suma(parseInt(input1.value), parseInt(input2.value));
+      };
+      const suma = (a, b) => {
+        return (resultado.innerHTML = `resultado: ${a + b}`);
+      };
+    </script>
+  </body>
+</html>
