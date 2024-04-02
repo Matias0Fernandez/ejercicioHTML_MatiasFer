@@ -41,7 +41,12 @@
       const resultado = document.getElementById("resultado");
 
       const handleClick = () => {
-        suma(parseInt(input1.value), parseInt(input2.value));
+        if (isNaN(parseInt(input1.value)) || isNaN(parseInt(input2.value))) {
+          return (resultado.innerHTML =
+            "ERROR: No a ingresado los 2 valores necesarios.");
+        } else {
+          suma(parseInt(input1.value), parseInt(input2.value));
+        }
       };
       const suma = (a, b) => {
         return (resultado.innerHTML = `resultado: ${a + b}`);
