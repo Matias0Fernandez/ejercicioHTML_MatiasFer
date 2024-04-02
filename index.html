@@ -7,28 +7,34 @@
     <title>Document</title>
   </head>
   <body>
-    <h1>-Ingrese 2 numeros a sumar-</h1>
     <section>
+      <h1>-SUMAR-</h1>
       <div>
         primer numero:
         <input type="number" name="numberInput" id="inputNumber1" />
-      </div>
-      <div>
+        <button
+          id="clear"
+          onclick="document.getElementById('inputNumber1').value = ''"
+        >
+          CLEAR
+        </button>
+        <br />
         segundo numero:
         <input type="number" name="numberInput" id="inputNumber2" />
+        <button
+          id="clear"
+          onclick="document.getElementById('inputNumber2').value = ''"
+        >
+          CLEAR
+        </button>
+      </div>
+      <br />
+      <button id="sumar" onclick="handleClick()">SUMAR</button>
+
+      <div>
+        <p id="resultado"></p>
       </div>
     </section>
-    <button id="sumar" onclick="handleClick()">SUMAR</button>
-
-    <button
-      id="clear"
-      onclick="document.getElementById('inputNumber1').value = ''"
-    >
-      CLEAR
-    </button>
-    <div>
-      <p id="resultado"></p>
-    </div>
     <script>
       const input1 = document.getElementById("inputNumber1");
       const input2 = document.getElementById("inputNumber2");

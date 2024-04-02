@@ -1,3 +1,16 @@
 div {
+  display: flex;
+  flex-direction: column;
+}
+
+section {
+  gap: 4;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+br {
   margin: 10px;
 }
