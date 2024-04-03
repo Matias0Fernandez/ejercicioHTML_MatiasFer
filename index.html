@@ -17,9 +17,7 @@
           name="numberInput"
           id="inputNumber1"
         />
-        <button onclick="document.getElementById('inputNumber1').value = ''">
-          CLEAR
-        </button>
+        <button onclick="clearInput('inputNumber1')">CLEAR</button>
         <br />
         segundo numero:
         <input
@@ -28,9 +26,7 @@
           name="numberInput"
           id="inputNumber2"
         />
-        <button onclick="document.getElementById('inputNumber2').value = ''">
-          CLEAR
-        </button>
+        <button onclick="clearInput('inputNumber2')">CLEAR</button>
       </div>
       <br />
       <button id="sumar" onclick="suma()" disabled>SUMAR</button>
@@ -40,21 +36,32 @@
       </div>
     </section>
     <script>
-      const enableButton = () => {
-        if (isNaN(parseInt(input1.value)) || isNaN(parseInt(input2.value))) {
-          document.getElementById("sumar").disabled = true;
-        } else {
-          document.getElementById("sumar").disabled = false;
-        }
-      };
-
       const input1 = document.getElementById("inputNumber1");
       const input2 = document.getElementById("inputNumber2");
       const resultado = document.getElementById("resultado");
+      const sumarButton = document.getElementById("sumar");
+
+      const enableButton = () => {
+        if (
+          input1.value.trim() !== "" &&
+          input2.value.trim() !== "" &&
+          !isNaN(input1.value) &&
+          !isNaN(input2.value)
+        ) {
+          sumarButton.disabled = false;
+        } else {
+          resultado.innerHTML = 0;
+          sumarButton.disabled = true;
+        }
+      };
 
       const suma = () => {
-        return (resultado.innerHTML =
-          parseInt(input1.value) + parseInt(input2.value));
+        resultado.innerHTML = parseInt(input1.value) + parseInt(input2.value);
+      };
+
+      const clearInput = (inputId) => {
+        document.getElementById(inputId).value = "";
+        enableButton();
       };
     </script>
   </body>
