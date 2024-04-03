@@ -11,39 +11,50 @@
       <h1>-SUMAR-</h1>
       <div>
         primer numero:
-        <input type="number" name="numberInput" id="inputNumber1" />
+        <input
+          type="number"
+          oninput="enableButton()"
+          name="numberInput"
+          id="inputNumber1"
+        />
         <button onclick="document.getElementById('inputNumber1').value = ''">
           CLEAR
         </button>
         <br />
         segundo numero:
-        <input type="number" name="numberInput" id="inputNumber2" />
+        <input
+          type="number"
+          oninput="enableButton()"
+          name="numberInput"
+          id="inputNumber2"
+        />
         <button onclick="document.getElementById('inputNumber2').value = ''">
           CLEAR
         </button>
       </div>
       <br />
-      <button id="sumar" onclick="handleClick()">SUMAR</button>
+      <button id="sumar" onclick="suma()" disabled>SUMAR</button>
 
       <div>
-        <p id="resultado"></p>
+        <p id="resultado">0</p>
       </div>
     </section>
     <script>
+      const enableButton = () => {
+        if (isNaN(parseInt(input1.value)) || isNaN(parseInt(input2.value))) {
+          document.getElementById("sumar").disabled = true;
+        } else {
+          document.getElementById("sumar").disabled = false;
+        }
+      };
+
       const input1 = document.getElementById("inputNumber1");
       const input2 = document.getElementById("inputNumber2");
       const resultado = document.getElementById("resultado");
 
-      const handleClick = () => {
-        if (isNaN(parseInt(input1.value)) || isNaN(parseInt(input2.value))) {
-          return (resultado.innerHTML =
-            "ERROR: No a ingresado los 2 valores necesarios.");
-        } else {
-          suma(parseInt(input1.value), parseInt(input2.value));
-        }
-      };
-      const suma = (a, b) => {
-        return (resultado.innerHTML = `resultado: ${a + b}`);
+      const suma = () => {
+        return (resultado.innerHTML =
+          parseInt(input1.value) + parseInt(input2.value));
       };
     </script>
   </body>
